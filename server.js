@@ -7,6 +7,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.listen(port, 'localhost', () => {
-  console.log(`Server running at http://localhost:${port}`);
+const host = process.env.REPL_SLUG ? '0.0.0.0' : 'localhost';
+app.listen(port, host, () => {
+  console.log(`Server running at http://${host}:${port}`);
 });
